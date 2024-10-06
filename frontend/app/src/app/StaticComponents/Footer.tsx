@@ -1,4 +1,7 @@
 import React from "react";
+import Image from 'next/image'; 
+import Mainicon from '../components/icon.png';
+
 
 const Footer: React.FC = () => {
   return (
@@ -7,8 +10,8 @@ const Footer: React.FC = () => {
         <div className="mx-auto w-full max-w-7xl lg:px-8">
           <div className="flex flex-col items-center md:flex-row md:justify-between">
             <div className="flex flex-col items-center md:flex-row gap-2 w-full md:w-[35%]">
-              <img
-                src="https://tailwind-generator.b-cdn.net/favicon.png"
+              <Image
+                src={Mainicon}
                 width="100"
                 alt="Logo Preview"
                 className="w-16 h-16 md:w-20 md:h-20"

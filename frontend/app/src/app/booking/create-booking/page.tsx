@@ -22,7 +22,7 @@ const CreateBooking: React.FC = () => {
             date: new Date(date).toISOString().split('T')[0],
         };
     
-        console.log("Booking Data:", bookingData); 
+        console.log("Booking Data:", bookingData);
     
         try {
             const response = await fetch("http://localhost:5000/api/bookings", {
@@ -32,6 +32,7 @@ const CreateBooking: React.FC = () => {
             });
     
             if (response.status >= 200 && response.status < 300) {
+                // Redirect to the homepage after successful creation
                 router.push("/");
             } else {
                 alert("Failed to create booking. Please try again.");
@@ -41,7 +42,7 @@ const CreateBooking: React.FC = () => {
             alert("Failed to create booking: " + error.message);
         }
     };
-
+    
     return (
         <div className="flex items-center justify-center min-h-screen ">
             <form onSubmit={handleSubmit} className="flex flex-col p-8  bg-gray-200 rounded-lg shadow-md w-full">
@@ -62,6 +63,7 @@ const CreateBooking: React.FC = () => {
                     className="mb-4 p-2 border border-gray-300 text-black rounded"
                     required
                 />
+                <label className="text-gray-600"> Start at</label>
                 <input
                     type="time"
                     value={startTime}
@@ -69,6 +71,7 @@ const CreateBooking: React.FC = () => {
                     className="mb-4 p-2 border border-gray-300 text-black rounded"
                     required
                 />
+                <label className="text-gray-600"> Ends at</label>
                 <input
                     type="time"
                     value={endTime}
@@ -76,6 +79,7 @@ const CreateBooking: React.FC = () => {
                     className="mb-4 p-2 border border-gray-300 text-black rounded"
                     required
                 />
+                <label className="text-gray-600">Date</label>
                 <input
                     type="date"
                     value={date}

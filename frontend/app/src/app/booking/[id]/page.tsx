@@ -36,7 +36,6 @@ const BookingDetail: FC<{ params: { id: string } }> = async ({ params }) => {
     return <p>No booking details found.</p>; 
   }
 
-  // Format the date to 'YYYY-MM-DD'
   const formattedDate = new Date(bookingDetails.date).toISOString().split('T')[0];
 
   return (

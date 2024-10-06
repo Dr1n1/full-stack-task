@@ -1,10 +1,8 @@
-// Home.tsx
-
 import Link from "next/link";
 import Card from "./components/Card";
 
 async function getBookings() {
-  const res = await fetch('http://host.docker.internal:5000/api/bookings', { cache: 'no-store', mode: 'no-cors' });
+  const res = await fetch('http://host.docker.internal:5000/api/bookings', { cache: 'no-store' });
   
   if (!res.ok) {
     throw new Error('Failed to fetch data');

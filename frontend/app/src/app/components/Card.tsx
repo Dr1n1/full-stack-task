@@ -10,6 +10,9 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ date, startTime, endTime, doctorName, service }) => {
+
+  const formattedDate = new Date(date).toISOString().split('T')[0];
+
     return (
         <div className="flex flex-col rounded-2xl w-100 bg-grey-300 shadow-xl">
             <figure className="flex justify-center items-center rounded-2xl">
@@ -23,11 +26,9 @@ const Card: React.FC<CardProps> = ({ date, startTime, endTime, doctorName, servi
                 />
             </figure>
             <div className="flex flex-col p-8">
-                <div className="text-2xl font-bold text-[#374151] pb-6">{startTime}</div>
-                <div className="text-lg text-[#374151]">{service}.</div>
-                <div className="text-lg text-[#374151]">{date}.</div>
-                <div className="text-lg text-[#374151]">{endTime}.</div>
-                <div className="text-lg text-[#374151]">{doctorName}.</div>
+            <div className="text-lg text-[#374151]"> 
+                A Booking on {formattedDate} starting at {startTime}
+                </div>
             </div>
         </div>
     );
